@@ -4,6 +4,7 @@
     <scroller style="padding-top: 44px;"
               :on-refresh="refresh"
               :on-infinite="infinite"
+              :stepCallback="stepCallback"
               ref="my_scroller">
 
       <div v-for="(item, index) in items" @click="onItemClick(index, item)"
@@ -70,6 +71,10 @@
 
       onItemClick(index, item) {
         console.log(index)
+      },
+
+      stepCallback () {
+        console.log('stepCallback')
       }
     }
   }

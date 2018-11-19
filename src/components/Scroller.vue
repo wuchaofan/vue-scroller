@@ -442,6 +442,7 @@
 
       touchMove(e) {
         e.preventDefault()
+        this.stepCallback()
         this.scroller.doTouchMove(e.touches, e.timeStamp)
       },
 
