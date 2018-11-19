@@ -186,7 +186,14 @@
     props: {
       onRefresh: Function,
       onInfinite: Function,
-
+      scrollingComplete: {
+        type: Function,
+        default: function () {}
+      },
+      stepCallback: {
+        type: Function,
+        default: function () {}
+      },
       refreshText: {
         type: String,
         default: '下拉刷新'
@@ -317,7 +324,9 @@
         snapping: this.snapping,
         animating: this.animating,
         animationDuration: this.animationDuration,
-        bouncing: this.bouncing
+        bouncing: this.bouncing,
+        scrollingComplete: this.scrollingComplete,
+        stepCallback: this.stepCallback
       })
 
       // enable PullToRefresh

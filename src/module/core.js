@@ -270,7 +270,9 @@
       penetrationDeceleration : 0.03,
 
       /** This configures the amount of change applied to acceleration when reaching boundaries  **/
-      penetrationAcceleration : 0.08
+			penetrationAcceleration : 0.08,
+
+			stepCallback: NOOP
 
 		};
 
@@ -1287,6 +1289,7 @@
 						}
 
 					}
+					self.options.stepCallback()
 				};
 
 				var verify = function(id) {
@@ -1394,6 +1397,7 @@
 			// Wrap class method
 			var step = function(percent, now, render) {
 				self.__stepThroughDeceleration(render);
+				self.options.stepCallback()
 			};
 
 			// How much velocity is required to keep the deceleration running
